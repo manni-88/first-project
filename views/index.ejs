@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hodlinfo</title>
+    <style>
+        body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* Light text color */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #1a1a1a; /* Dark background for navbar */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%; /* Changed width to 100% */
+    z-index: 1000;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 36px; /* Slightly smaller font size */
+    color: #fff;
+}
+
+.buttons-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;}
+
+.button {
+    margin: 0 10px;
+    padding: 10px 140px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #282828; /* Darker background */
+    color: #fff;
+}
+
+  .connect-telegram {
+    background-color: #ff9900; /* Orange background for connect button */
+    color: #1a1a1a; /* Dark text color */
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+ 
+ .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+.switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+            margin-left: 3px ;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+/* .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+} */
+
+
+
+
+.trade {
+    text-align: center;
+    margin-top: 100px; /* Adjusted margin-top */
+}
+
+.trade h2 {
+    color: #ff9900; /* Orange color */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Wrapped container */
+    justify-content: space-around; /* Evenly spaced items */
+    align-items: center;
+    padding: 20px;
+    overflow-x: auto;
+    margin-top: 20px; /* Adjusted margin-top */
+}
+
+.timePercentage {
+    flex: 1; /* Each item takes equal space */
+    padding: 20px;
+    border: 1px solid #333; /* Darker border */
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px; /* Increased margin */
+}
+
+.percentage {
+    font-size: 28px; /* Larger font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ff9900; /* Orange color */
+}
+
+.timespam {
+    font-size: 16px;
+    color: #999;
+}
+
+h2 {
+    font-size: 36px;
+    color: #fff;
+}
+
+h3 {
+    font-size: 18px; /* Smaller font size */
+    margin-top: 10px;
+    color: #ddd;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 50px; /* Adjusted margin-top */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333; /* Darker border */
+}
+
+th {
+    background-color: #282828; /* Darker background for table header */
+    color: #fff;
+}
+
+td {
+    color: #ff9900; /* Orange color for table data */
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Hodlinfo</h1>
+        <div class="buttons-container">
+            <button class="button inr">INR</button>
+            <button class="button btc">BTC</button>
+            <button class="button buy-btc">BUY-BTC</button>
+        </div>
+        <button class="connect-telegram">Connect Telegram</button>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <div class="trade">
+        <h2>Best Price to Trade</h2>
+    </div>
+    <div class="container">
+        <div class="timePercentage">
+            <p class="percentage">1.0 %</p>
+            <p class="timespam">5 Mins</p>
+        </div>
+        <div class="timePercentage">
+            <p class="percentage">3.0% </p>
+            <p class="timespam">1 Hour</p>
+        </div>
+        <div class="timePercentage">
+            <h2>4528795</h2>
+        </div>
+        <div class="timePercentage">
+            <p class="percentage">4.0% </p>
+            <p class="timespam">1 Day</p>
+        </div>
+        <div class="timePercentage">
+            <p class="percentage">8.3%</p>
+            <p class="timespam">7 Days</p>
+        </div>
+    </div>
+    <h3 style="margin-left: 550px;">Average BTC/INR set price including commission</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Last Trade Price</th>
+                <th>Buy/Sell Price Difference</th>
+                <th>Difference</th>
+                <th>Base Unit</th>
+            </tr>
+        </thead>
+        <tbody><% data.forEach((ticker, index) => { %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= ticker.name %></td>
+                <td><%= ticker.sell %></td>
+                <td><%= ticker.buy %>/<%= ticker.sell %></td>
+                <% 
+                    // Calculate the percentage difference between buy and sell prices
+                    const percentageDifference = ((ticker.buy - ticker.sell) / ticker.sell) * 100;
+                    // Round the percentage difference to three decimal places
+                    const roundedPercentageDifference = percentageDifference.toFixed(3);
+        
+                    // Apply different styles based on the sign of the percentage difference
+                    const color = percentageDifference > 0 ? 'green' : 'red';
+                %>
+                <td style="color: <%= color %>"><%= roundedPercentageDifference %></td>
+                <td><%= ticker.base_unit %></td>
+            </tr>
+        <% }); %>
+        
+        </tbody>
+    </table>
+
+</body>
+</html>
